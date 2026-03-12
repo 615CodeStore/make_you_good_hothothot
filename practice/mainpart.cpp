@@ -7,29 +7,30 @@ IMAGE heart, heartmask;
 
 void begin1()
 {
-	loadimage(&heart, L"image/heart.jpg");
-	loadimage(&heartmask, L"image/heartmask.jpg");
+	loadimage(&heart, L"../image/heart.jpg");
+	loadimage(&heartmask, L"../image/heartmask.jpg");
 	for (int i = 10; i < 750;)
 	{
 		bool color = 0;
 		cleardevice();
 		setfillcolor(WHITE);
-		solidcircle(640, 360, i);		 putimage(220, 90, &heartmask, NOTSRCERASE); putimage(220, 90, &heart, SRCINVERT);
+		solidcircle(640, 360, i);
 		for (int j = i; j >= 10; j -= 15)
 		{
 			if (color == 0)
 			{
 				setfillcolor(MAGENTA);
-				solidcircle(640, 360, j);		 putimage(220, 90, &heartmask, NOTSRCERASE); putimage(220, 90, &heart, SRCINVERT);
+				solidcircle(640, 360, j);
 				color = 1;
 			}
 			else
 			{
 				setfillcolor(WHITE);
-				solidcircle(640, 360, j);		 putimage(220, 90, &heartmask, NOTSRCERASE); putimage(220, 90, &heart, SRCINVERT);
+				solidcircle(640, 360, j);
 				color = 0;
 			}
 		}
+		putimage(220, 90, &heartmask, NOTSRCERASE); putimage(220, 90, &heart, SRCINVERT);
 		FlushBatchDraw();
 		if (i < 150)
 		{
@@ -51,7 +52,7 @@ void begin1()
 		{
 			i += 5;
 		}
-		Sleep(7);
+		Sleep(3);
 	}
 }
 int main()
